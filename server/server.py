@@ -9,8 +9,13 @@ def handle_client(client_socket):
 
     try:
         data=client_socket.recv(1024).decode()
+        parts = data.split("|")
 
-        message,received_hmac=data.split("|")
+        if len(parts) != 2:
+            client_socket.send("Invalid message format.".encode())
+            return
+
+        message, received_hmac = parts
 
         print(f"received Message: {message}")
         print(f"received hmac: {received_hmac}")
@@ -35,6 +40,8 @@ def handle_client(client_socket):
         
 
 server=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
 
 server.bind((HOST,PORT))
 
