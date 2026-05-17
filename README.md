@@ -1,41 +1,45 @@
-# hmac_project
+#hmac_project
 
-Implementation of HMAC (Hash-based Message Authentication Code) using a Python Client-Server architecture for message authentication and integrity verification.
+Implementation of Hash-based Message Authentication Code (HMAC) using a Python Client–Server Architecture for Secure Communication
 
----
+#Project Description
 
-# Overview
+This project demonstrates the implementation of HMAC (Hash-based Message Authentication Code) to ensure secure communication between a client and a server.
 
-This project demonstrates how HMAC can be used to provide:
+The system focuses on protecting data during transmission by providing:
 
 - Message Integrity
 - Message Authentication
 - Tamper Detection
-- Secure Client-Server Communication
+- Secure Client–Server Communication
 
-The client generates an HMAC using a shared secret key and sends both the message and HMAC to the server.  
-The server verifies the received HMAC to ensure that the message has not been modified during transmission.
 
----
-
-# Technologies Used
-
+#Technologies Used
 - Python 3
 - Socket Programming
-- Multi-threading
-- HMAC
-- SHA-256 Hashing
+- Multithreading
+- HMAC (Hash-based Message Authentication Code)
+- SHA-256 Hashing Algorithm
 
----
+#How It Works
+- Client creates a message
+- Client generates HMAC using a shared secret key
+- Message + HMAC are sent to server
+- Server recalculates HMAC using the same key
+- If both HMAC values match → message is authentic
+- If not → message is rejected (tampering detected)
 
-# Project Structure
+#Project Structure
 
-```text
 hmac_project/
+│
+├── attacks/
+│   └── tamper_test.py
 │
 ├── client/
 │   ├── __init__.py
-│   └── client.py
+│   ├── client.py
+│   └── hmac_utils.py
 │
 ├── server/
 │   ├── __init__.py
@@ -47,4 +51,3 @@ hmac_project/
 │   └── config.py
 │
 └── README.md
-```
