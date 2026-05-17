@@ -31,20 +31,20 @@ The system focuses on protecting data during transmission by providing:
 
 #Project Structure
 
-```text
+```
 hmac_project/
 ├── attacks/
-│ └── tamper_test.py
+│   └── tamper_test.py
 ├── client/
-│ ├── __init__.py
-│ ├── client.py
-│ └── hmac_utils.py
+│   ├── __init__.py
+│   ├── client.py
+│   └── hmac_utils.py
 ├── server/
-│ ├── __init__.py
-│ ├── server.py
-│ └── verifier.py
+│   ├── __init__.py
+│   ├── server.py
+│   └── verifier.py
 ├── shared/
-│ ├── __init__.py
-│ └── config.py
+│   ├── __init__.py
+│   └── config.py
 └── README.md
 ```
